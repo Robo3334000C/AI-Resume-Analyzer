@@ -1,0 +1,141 @@
+.social-menu-wrapper .main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.social-menu-wrapper .up {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+}
+
+.social-menu-wrapper .down {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+}
+
+.social-menu-wrapper .card1 {
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 90px 5px 5px 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: .2s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15px; /* adjust for the rounded corner shape */
+  padding-left: 15px;
+}
+
+.social-menu-wrapper .instagram {
+  fill: #cc39a4;
+}
+
+.social-menu-wrapper .card2 {
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 5px 90px 5px 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: .2s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15px;
+  padding-right: 15px;
+}
+
+.social-menu-wrapper .twitter {
+  fill: #03A9F4;
+}
+
+.social-menu-wrapper .card3 {
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 5px 5px 5px 90px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: .2s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 15px;
+  padding-left: 15px;
+}
+
+.social-menu-wrapper .github {
+  fill: currentColor;
+}
+
+.social-menu-wrapper .card4 {
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 5px 5px 90px 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: .2s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 15px;
+  padding-right: 15px;
+}
+
+.social-menu-wrapper .discord {
+  fill: #8c9eff;
+}
+
+.social-menu-wrapper .card1:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: #cc39a4;
+}
+
+.social-menu-wrapper .card1:hover .instagram {
+  fill: white;
+}
+
+.social-menu-wrapper .card2:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: #03A9F4;
+}
+
+.social-menu-wrapper .card2:hover .twitter {
+  fill: white;
+}
+
+.social-menu-wrapper .card3:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: black;
+}
+
+.social-menu-wrapper .card3:hover .github {
+  fill: white;
+}
+
+.social-menu-wrapper .card4:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: #8c9eff;
+}
+
+.social-menu-wrapper .card4:hover .discord {
+  fill: white;
+}

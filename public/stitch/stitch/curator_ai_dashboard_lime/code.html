@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Curator AI - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "tertiary-fixed": "#d5e3ff",
+                "inverse-surface": "#2f3224",
+                "surface-bright": "#fafbe7",
+                "secondary-fixed": "#d6ec89",
+                "primary-fixed": "#caf22a",
+                "on-primary-container": "#526400",
+                "error-container": "#ffdad6",
+                "tertiary-container": "#c3d8ff",
+                "on-error-container": "#93000a",
+                "outline": "#757962",
+                "secondary-container": "#d3e986",
+                "primary-fixed-dim": "#b0d500",
+                "on-tertiary": "#ffffff",
+                "tertiary": "#4b5f80",
+                "on-secondary": "#ffffff",
+                "on-tertiary-fixed": "#031c39",
+                "surface-variant": "#e3e4d0",
+                "inverse-primary": "#b0d500",
+                "inverse-on-surface": "#f1f2de",
+                "on-primary-fixed": "#171e00",
+                "primary-container": "#bfe619",
+                "surface-dim": "#dadbc8",
+                "on-tertiary-fixed-variant": "#334767",
+                "tertiary-fixed-dim": "#b2c7ee",
+                "on-primary-fixed-variant": "#3e4c00",
+                "surface": "#fafbe7",
+                "on-surface-variant": "#454934",
+                "on-error": "#ffffff",
+                "error": "#ba1a1a",
+                "on-secondary-fixed-variant": "#3e4c00",
+                "on-secondary-fixed": "#171e00",
+                "surface-tint": "#536600",
+                "surface-container-low": "#f4f5e1",
+                "background": "#fafbe7",
+                "surface-container-highest": "#e3e4d0",
+                "on-background": "#1a1d11",
+                "surface-container-lowest": "#ffffff",
+                "secondary-fixed-dim": "#bbd070",
+                "primary": "#536600",
+                "on-surface": "#1a1d11",
+                "on-primary": "#ffffff",
+                "surface-container": "#eeefdb",
+                "secondary": "#54650f",
+                "on-tertiary-container": "#4a5e7f",
+                "surface-container-high": "#e8ead6",
+                "on-secondary-container": "#586a14",
+                "outline-variant": "#c5c9ae"
+              },
+              fontFamily: {
+                "headline": ["Inter"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- Top Navigation -->
+<header class="bg-white dark:bg-zinc-950 text-lime-500 dark:text-lime-400 font-['Inter'] antialiased w-full sticky top-0 z-50 border-b border-zinc-200 dark:border-zinc-800 shadow-sm flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-4">
+<span class="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">Curator AI</span>
+</div>
+<nav class="hidden md:flex items-center gap-8 h-full">
+<a class="text-lime-600 dark:text-lime-400 border-b-2 border-lime-500 pb-2 flex items-center gap-2 h-full px-2 text-sm font-medium" href="#">Dashboard</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors flex items-center gap-2 h-full px-2 text-sm font-medium" href="#">Analysis</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors flex items-center gap-2 h-full px-2 text-sm font-medium" href="#">Resumes</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors flex items-center gap-2 h-full px-2 text-sm font-medium" href="#">History</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors p-2 rounded-full active:scale-95 duration-150">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors p-2 rounded-full active:scale-95 duration-150">settings</button>
+<div class="w-8 h-8 rounded-full bg-primary-container overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="User professional profile portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASNrEgJ2FMyApbGFJGO4x1I8oPfSblBCMYd2MFDCpzaTVyNWnJwNSbQnfqQoecNYBQII0koMH7cHF08swN21Gc2gkK7Pqmyss06tzimc5An9ZG4Z_OgtE6jspbIDUTwB27fOMBjuHO8hJrHHTXT0ZajP1o7jKFnSYoQ7RY3xCrQYODaFurVKE-FwyKpEPJDgFLxAENA4PEZ95ngNNAF-JTVpc9QMEAPfqPcwStBcmcpJnLBjxhIRmFnvTv9UXyvLyKgPn7UrBEo2sG"/>
+</div>
+</div>
+</header>
+<main class="flex h-[calc(100vh-4rem)] overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="hidden lg:flex flex-col p-4 gap-2 bg-zinc-50 dark:bg-zinc-900 h-full w-64 border-r border-zinc-200 dark:border-zinc-800 shrink-0">
+<div class="mb-8 px-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary font-bold">description</span>
+</div>
+<div>
+<p class="text-lg font-black text-zinc-900 dark:text-zinc-50 leading-tight">Curator AI</p>
+<p class="text-xs text-zinc-500 font-medium">Premium Analysis</p>
+</div>
+</div>
+</div>
+<a class="flex items-center gap-3 bg-lime-100/50 dark:bg-lime-900/20 text-lime-700 dark:text-lime-300 rounded-lg px-3 py-2 transition-all duration-200 ease-in-out font-medium text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-zinc-600 dark:text-zinc-400 px-3 py-2 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 transition-all duration-200 ease-in-out font-medium text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>Analysis</span>
+</a>
+<a class="flex items-center gap-3 text-zinc-600 dark:text-zinc-400 px-3 py-2 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 transition-all duration-200 ease-in-out font-medium text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span>Resumes</span>
+</a>
+<a class="flex items-center gap-3 text-zinc-600 dark:text-zinc-400 px-3 py-2 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 transition-all duration-200 ease-in-out font-medium text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span>History</span>
+</a>
+<div class="mt-auto p-4 bg-primary-container/20 rounded-xl border border-primary-container/30">
+<p class="text-xs font-bold text-on-primary-container uppercase tracking-widest mb-2">Pro Plan</p>
+<p class="text-xs text-on-surface-variant mb-3">Get unlimited ATS scans and AI optimization.</p>
+<button class="w-full py-2 bg-primary text-on-primary rounded-lg text-xs font-bold transition-transform active:scale-95">Upgrade Now</button>
+</div>
+</aside>
+<!-- Split Screen Content -->
+<div class="flex-1 flex overflow-hidden">
+<!-- Left Side: Resume View -->
+<section class="flex-1 bg-surface-container-low p-6 overflow-y-auto hidden md:block">
+<div class="max-w-3xl mx-auto">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-sm font-bold uppercase tracking-widest text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">visibility</span>
+                            Resume Preview
+                        </h2>
+<div class="flex gap-2">
+<button class="p-2 bg-white rounded-lg border border-outline-variant shadow-sm hover:bg-surface transition-colors">
+<span class="material-symbols-outlined text-lg">zoom_in</span>
+</button>
+<button class="p-2 bg-white rounded-lg border border-outline-variant shadow-sm hover:bg-surface transition-colors">
+<span class="material-symbols-outlined text-lg">download</span>
+</button>
+</div>
+</div>
+<!-- Paper Mockup -->
+<div class="bg-white shadow-2xl rounded-sm p-12 min-h-[1000px] border border-zinc-100">
+<div class="border-b-2 border-primary pb-6 mb-8">
+<h1 class="text-3xl font-black text-zinc-900 tracking-tight">ALEXANDER CHASE</h1>
+<p class="text-lime-700 font-bold tracking-wide">Senior Software Architect</p>
+</div>
+<div class="grid grid-cols-3 gap-8">
+<div class="col-span-1">
+<section class="mb-6">
+<h3 class="text-xs font-black uppercase text-zinc-400 mb-2">Contact</h3>
+<p class="text-[10px] text-zinc-600 mb-1">alex.chase@example.com</p>
+<p class="text-[10px] text-zinc-600 mb-1">+1 (555) 000-9283</p>
+<p class="text-[10px] text-zinc-600">San Francisco, CA</p>
+</section>
+<section>
+<h3 class="text-xs font-black uppercase text-zinc-400 mb-2">Skills</h3>
+<div class="flex flex-wrap gap-1">
+<span class="text-[9px] px-2 py-0.5 bg-zinc-100 rounded">React</span>
+<span class="text-[9px] px-2 py-0.5 bg-zinc-100 rounded">Node.js</span>
+<span class="text-[9px] px-2 py-0.5 bg-zinc-100 rounded">Python</span>
+<span class="text-[9px] px-2 py-0.5 bg-zinc-100 rounded">AWS</span>
+<span class="text-[9px] px-2 py-0.5 bg-zinc-100 rounded">CI/CD</span>
+</div>
+</section>
+</div>
+<div class="col-span-2">
+<section class="mb-8">
+<h3 class="text-xs font-black uppercase text-zinc-400 mb-3 border-b border-zinc-100 pb-1">Experience</h3>
+<div class="mb-4">
+<div class="flex justify-between items-baseline">
+<h4 class="text-xs font-bold text-zinc-800">Lead Dev @ CloudScale</h4>
+<span class="text-[9px] text-zinc-400">2021 - Present</span>
+</div>
+<p class="text-[10px] text-zinc-600 mt-1 leading-relaxed">Pioneered architectural shifts moving from monolith to microservices, reducing latency by 45%.</p>
+</div>
+<div class="mb-4">
+<div class="flex justify-between items-baseline">
+<h4 class="text-xs font-bold text-zinc-800">Senior Engineer @ DataFlow</h4>
+<span class="text-[9px] text-zinc-400">2018 - 2021</span>
+</div>
+<p class="text-[10px] text-zinc-600 mt-1 leading-relaxed">Managed a team of 12 engineers in building real-time analytics pipelines processing 4TB/day.</p>
+</div>
+</section>
+<section>
+<h3 class="text-xs font-black uppercase text-zinc-400 mb-3 border-b border-zinc-100 pb-1">Education</h3>
+<h4 class="text-xs font-bold text-zinc-800">M.S. Computer Science</h4>
+<p class="text-[10px] text-zinc-400">Stanford University</p>
+</section>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Side: AI Insights Bento -->
+<section class="w-full md:w-[450px] lg:w-[500px] border-l border-outline-variant bg-surface-container overflow-y-auto p-6 scrollbar-hide">
+<div class="mb-6 flex items-center justify-between">
+<div>
+<h2 class="text-2xl font-black text-on-surface">Analysis Center</h2>
+<p class="text-sm text-on-surface-variant font-medium">Real-time AI Optimization</p>
+</div>
+<button class="bg-primary hover:bg-primary-container text-white px-4 py-2 rounded-xl font-bold text-sm transition-all active:scale-95 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                        Optimize
+                    </button>
+</div>
+<!-- Bento Grid -->
+<div class="grid grid-cols-2 gap-4">
+<!-- Main Score Card -->
+<div class="col-span-2 bg-white rounded-2xl p-6 border border-outline-variant shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl">insights</span>
+</div>
+<h3 class="text-xs font-black text-on-surface-variant uppercase tracking-widest mb-6">Overall ATS Score</h3>
+<div class="flex items-end gap-6">
+<div class="relative w-32 h-32 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90">
+<circle class="text-surface-container" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary rounded-full" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-dasharray="364.4" stroke-dashoffset="65.5" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-3xl font-black text-on-surface">82</span>
+<span class="text-[10px] font-bold text-zinc-400">MATCH</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="mb-4">
+<p class="text-sm font-bold text-primary mb-1 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                                        Highly Competitive
+                                    </p>
+<p class="text-xs text-on-surface-variant leading-relaxed">Your resume ranks in the top 15% of candidates for <strong>Senior Software Architect</strong> roles.</p>
+</div>
+<div class="flex gap-2">
+<span class="text-[10px] font-bold bg-secondary-container text-on-secondary-container px-2 py-1 rounded">V5 ANALYZED</span>
+<span class="text-[10px] font-bold bg-tertiary-container text-on-tertiary-container px-2 py-1 rounded">2 CRITICAL FIXES</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Keyword Match -->
+<div class="col-span-1 bg-white rounded-2xl p-4 border border-outline-variant shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-center mb-3">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">key</span>
+<span class="text-[10px] font-black text-zinc-400">92%</span>
+</div>
+<h4 class="text-xs font-bold text-on-surface mb-1">Keyword Match</h4>
+<p class="text-[10px] text-zinc-500 leading-tight">Strong alignment with technical requirements.</p>
+</div>
+<div class="mt-4 flex flex-wrap gap-1">
+<div class="w-full h-1 bg-zinc-100 rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[92%]"></div>
+</div>
+</div>
+</div>
+<!-- Grammar & Flow -->
+<div class="col-span-1 bg-white rounded-2xl p-4 border border-outline-variant shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-center mb-3">
+<span class="material-symbols-outlined text-tertiary">spellcheck</span>
+<span class="text-[10px] font-black text-error">Low</span>
+</div>
+<h4 class="text-xs font-bold text-on-surface mb-1">Grammar &amp; Tone</h4>
+<p class="text-[10px] text-zinc-500 leading-tight">3 passive voice errors detected in experience.</p>
+</div>
+<button class="mt-4 text-[10px] font-black text-primary uppercase tracking-tighter flex items-center gap-1">
+                            Fix Errors <span class="material-symbols-outlined text-xs">chevron_right</span>
+</button>
+</div>
+<!-- Formatting -->
+<div class="col-span-2 bg-white rounded-2xl p-5 border border-outline-variant shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="text-sm font-bold text-on-surface">Layout &amp; Formatting</h4>
+<p class="text-xs text-zinc-500">Machine readability assessment</p>
+</div>
+<div class="px-2 py-1 bg-primary-container text-on-primary-container text-[10px] font-bold rounded">OPTIMAL</div>
+</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<span class="text-[11px] text-on-surface-variant">Contact Info Parsability</span>
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-[11px] text-on-surface-variant">Section Headers (Standard)</span>
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-[11px] text-on-surface-variant">Font Compatibility</span>
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Impact Metrics -->
+<div class="col-span-2 bg-inverse-surface text-inverse-on-surface rounded-2xl p-6 border border-zinc-800 shadow-xl overflow-hidden relative">
+<div class="absolute -right-8 -bottom-8 w-32 h-32 bg-primary/20 rounded-full blur-3xl"></div>
+<div class="flex justify-between items-center mb-4">
+<h4 class="text-sm font-bold">Impact Metrics</h4>
+<span class="material-symbols-outlined text-primary">analytics</span>
+</div>
+<p class="text-xs text-zinc-400 mb-6">AI identified 4 areas to strengthen quantifiable achievements.</p>
+<div class="space-y-4">
+<div class="p-3 bg-zinc-800/50 rounded-xl border border-zinc-700">
+<p class="text-[10px] font-bold text-primary mb-1">IMPROVEMENT OPPORTUNITY</p>
+<p class="text-xs italic text-zinc-300">"Managed a team..."</p>
+<p class="text-[11px] text-zinc-400 mt-2">→ Suggestion: "Orchestrated a cross-functional team of 12 to deliver $2M in infrastructure savings."</p>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Action Center Floating Prompt -->
+<div class="mt-8">
+<div class="bg-primary-container/30 border border-primary-container p-4 rounded-2xl">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<span class="text-xs font-bold text-on-primary-container">Ask Curator AI to rewrite a section</span>
+</div>
+<div class="relative">
+<input class="w-full bg-white border-outline-variant rounded-xl text-xs py-3 pl-4 pr-12 focus:ring-primary focus:border-primary" placeholder="e.g., 'Make my summary more executive'" type="text"/>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm">send</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Bottom Navigation Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md border-t border-zinc-200 dark:border-zinc-800 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] rounded-t-2xl">
+<a class="flex flex-col items-center justify-center text-lime-600 dark:text-lime-400 font-bold bg-lime-50 dark:bg-lime-900/30 rounded-xl px-4 py-1 tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-wider">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-500 dark:text-zinc-400 tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined" data-icon="document_scanner">document_scanner</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-wider">Scan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-500 dark:text-zinc-400 tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined" data-icon="folder">folder</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-wider">Files</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-500 dark:text-zinc-400 tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-wider">Profile</span>
+</a>
+</nav>
+</body></html>

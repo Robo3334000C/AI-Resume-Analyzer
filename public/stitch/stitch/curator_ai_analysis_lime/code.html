@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Curator AI - Analysis State</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed": "#d5e3ff",
+              "inverse-surface": "#2f3224",
+              "surface-bright": "#fafbe7",
+              "secondary-fixed": "#d6ec89",
+              "primary-fixed": "#caf22a",
+              "on-primary-container": "#526400",
+              "error-container": "#ffdad6",
+              "tertiary-container": "#c3d8ff",
+              "on-error-container": "#93000a",
+              "outline": "#757962",
+              "secondary-container": "#d3e986",
+              "primary-fixed-dim": "#b0d500",
+              "on-tertiary": "#ffffff",
+              "tertiary": "#4b5f80",
+              "on-secondary": "#ffffff",
+              "on-tertiary-fixed": "#031c39",
+              "surface-variant": "#e3e4d0",
+              "inverse-primary": "#b0d500",
+              "inverse-on-surface": "#f1f2de",
+              "on-primary-fixed": "#171e00",
+              "primary-container": "#bfe619",
+              "surface-dim": "#dadbc8",
+              "on-tertiary-fixed-variant": "#334767",
+              "tertiary-fixed-dim": "#b2c7ee",
+              "on-primary-fixed-variant": "#3e4c00",
+              "surface": "#fafbe7",
+              "on-surface-variant": "#454934",
+              "on-error": "#ffffff",
+              "error": "#ba1a1a",
+              "on-secondary-fixed-variant": "#3e4c00",
+              "on-secondary-fixed": "#171e00",
+              "surface-tint": "#536600",
+              "surface-container-low": "#f4f5e1",
+              "background": "#fafbe7",
+              "surface-container-highest": "#e3e4d0",
+              "on-background": "#1a1d11",
+              "surface-container-lowest": "#ffffff",
+              "secondary-fixed-dim": "#bbd070",
+              "primary": "#536600",
+              "on-surface": "#1a1d11",
+              "on-primary": "#ffffff",
+              "surface-container": "#eeefdb",
+              "secondary": "#54650f",
+              "on-tertiary-container": "#4a5e7f",
+              "surface-container-high": "#e8ead6",
+              "on-secondary-container": "#586a14",
+              "outline-variant": "#c5c9ae"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .scanning-line {
+        height: 4px;
+        background: linear-gradient(90deg, transparent, #bfe619, transparent);
+        position: absolute;
+        width: 100%;
+        top: 40%;
+        box-shadow: 0 0 15px #bfe619;
+      }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body">
+<!-- TopAppBar -->
+<header class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 border-b border-zinc-200 dark:border-zinc-800 shadow-sm w-full sticky top-0 z-50 flex justify-between items-center px-6 h-16 w-full font-['Inter'] antialiased">
+<div class="flex items-center gap-4">
+<span class="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">Curator AI</span>
+<nav class="hidden md:flex gap-6 ml-8">
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200" href="#">Dashboard</a>
+<a class="text-lime-600 dark:text-lime-400 border-b-2 border-lime-500 pb-2" href="#">Analysis</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200" href="#">Resumes</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200" href="#">History</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors p-2 rounded-full">notifications</button>
+<button class="material-symbols-outlined text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors p-2 rounded-full">settings</button>
+<div class="h-8 w-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container overflow-hidden">
+<img alt="User profile" data-alt="Close up of a professional male user profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvANh49c9gouswo6Lmr8tixzpb1kPE7dmNL0oNvG4axoahfn7CuYNIpT5hYDubA8m6xM-s2gx4H98brvf5fV4zuDbUkZEDB840y8Gh1_T_EL_AjtnEgV5Rs-R0EEw0XS-HOzb99KCNI9o9cVBl9ERsAO2rEGaAzfyIR4mpoPA6uyYzSBeW7AJEkpApRly9ceQWpreM5nzwRVqyunHkDLHmCeCceszv6cQmO6DaQyrjrZitRoImFjkqBWZWxOzwFORu4pO8sXXxV7Bs"/>
+</div>
+</div>
+</header>
+<div class="flex min-h-[calc(100vh-64px)]">
+<!-- SideNavBar (Visible on Desktop) -->
+<aside class="hidden lg:flex flex-col p-4 gap-2 h-screen w-64 bg-zinc-50 dark:bg-zinc-900 border-r border-zinc-200 dark:border-zinc-800 sticky top-16">
+<div class="mb-6 px-3">
+<h2 class="text-lg font-black text-zinc-900 dark:text-zinc-50">Curator AI</h2>
+<p class="text-[10px] text-zinc-500 uppercase tracking-widest">Premium Analysis</p>
+</div>
+<a class="flex items-center gap-3 text-zinc-600 dark:text-zinc-400 px-3 py-2 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 transition-all duration-200 ease-in-out font-medium text-sm" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 bg-lime-100/50 dark:bg-lime-900/20 text-lime-700 dark:text-lime-300 rounded-lg px-3 py-2 font-medium text-sm" href="#">
+<span class="material-symbols-outlined">analytics</span>
+                Analysis
+            </a>
+<a class="flex items-center gap-3 text-zinc-600 dark:text-zinc-400 px-3 py-2 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 transition-all duration-200 ease-in-out font-medium text-sm" href="#">
+<span class="material-symbols-outlined">description</span>
+                Resumes
+            </a>
+<a class="flex items-center gap-3 text-zinc-600 dark:text-zinc-400 px-3 py-2 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 transition-all duration-200 ease-in-out font-medium text-sm" href="#">
+<span class="material-symbols-outlined">history</span>
+                History
+            </a>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 p-6 md:p-12 lg:p-16 max-w-7xl mx-auto w-full">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column: Status & Progress -->
+<div class="lg:col-span-5 flex flex-col gap-8 order-2 lg:order-1">
+<div class="flex flex-col gap-2">
+<span class="text-primary font-bold tracking-widest text-xs uppercase">System Engine</span>
+<h1 class="text-4xl font-black text-on-surface tracking-tight">Processing Talent...</h1>
+<p class="text-on-surface-variant text-lg">Our AI is dissecting your professional profile for optimal matching and performance.</p>
+</div>
+<!-- Status Indicators Card -->
+<div class="bg-surface-container rounded-xl p-6 border border-outline-variant shadow-sm flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-weight="fill">check_circle</span>
+<span class="font-medium text-on-surface">Analyzing Keywords...</span>
+</div>
+<span class="text-xs bg-primary-container text-on-primary-container px-2 py-0.5 rounded-full font-bold">DONE</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+<span class="font-medium text-on-surface">Checking Formatting...</span>
+</div>
+<span class="text-xs text-on-surface-variant font-medium italic">In progress</span>
+</div>
+<div class="flex items-center justify-between opacity-50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline">pending</span>
+<span class="font-medium text-on-surface">Calculating ATS Score...</span>
+</div>
+<span class="text-xs text-on-surface-variant font-medium uppercase">Waiting</span>
+</div>
+</div>
+<!-- Progress Bar Section -->
+<div class="flex flex-col gap-3">
+<div class="flex justify-between items-end">
+<span class="text-sm font-bold text-on-surface">Global Progress</span>
+<span class="text-2xl font-black text-primary">64%</span>
+</div>
+<div class="h-4 w-full bg-surface-container-highest rounded-full overflow-hidden border border-outline-variant/30">
+<div class="h-full bg-primary w-[64%] rounded-full shadow-[0_0_20px_rgba(183,222,5,0.4)]"></div>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">Estimating 12 seconds remaining for high-fidelity extraction.</p>
+</div>
+</div>
+<!-- Right Column: Central Scanning Animation Over Resume -->
+<div class="lg:col-span-7 flex justify-center order-1 lg:order-2">
+<div class="relative w-full max-w-md aspect-[3/4] bg-white dark:bg-zinc-900 rounded-xl shadow-2xl border border-outline-variant/40 overflow-hidden flex flex-col p-8 gap-6 group">
+<!-- Resume Skeleton -->
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 bg-surface-container-highest rounded-lg"></div>
+<div class="flex-1 space-y-2">
+<div class="h-4 bg-surface-container-highest rounded w-3/4"></div>
+<div class="h-3 bg-surface-container-highest rounded w-1/2"></div>
+</div>
+</div>
+<div class="space-y-4 pt-4 border-t border-surface-container-highest">
+<div class="h-3 bg-surface-container-highest rounded w-full"></div>
+<div class="h-3 bg-surface-container-highest rounded w-full"></div>
+<div class="h-3 bg-surface-container-highest rounded w-5/6"></div>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-4">
+<div class="h-24 bg-surface-container-low rounded-lg border border-outline-variant/10"></div>
+<div class="h-24 bg-surface-container-low rounded-lg border border-outline-variant/10"></div>
+</div>
+<div class="space-y-4 pt-4">
+<div class="h-3 bg-surface-container-highest rounded w-full"></div>
+<div class="h-3 bg-surface-container-highest rounded w-4/6"></div>
+</div>
+<!-- Scanning Animation Overlays -->
+<div class="absolute inset-0 bg-primary/5 pointer-events-none"></div>
+<div class="scanning-line"></div>
+<!-- Floating Data Points -->
+<div class="absolute top-1/4 right-8 bg-white/90 backdrop-blur shadow-lg border border-primary/20 p-2 rounded-lg flex items-center gap-2 transform rotate-3">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="text-[10px] font-bold text-on-surface">Soft Skills: Detected</span>
+</div>
+<div class="absolute bottom-1/3 left-6 bg-white/90 backdrop-blur shadow-lg border border-primary/20 p-2 rounded-lg flex items-center gap-2 transform -rotate-2">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<span class="text-[10px] font-bold text-on-surface">Tech Stack: Python, SQL</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Visible on Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md border-t border-zinc-200 dark:border-zinc-800 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] rounded-t-2xl">
+<div class="flex flex-col items-center justify-center text-zinc-500 dark:text-zinc-400">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-wider">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-lime-600 dark:text-lime-400 font-bold bg-lime-50 dark:bg-lime-900/30 rounded-xl px-4 py-1">
+<span class="material-symbols-outlined">document_scanner</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-wider">Scan</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-500 dark:text-zinc-400">
+<span class="material-symbols-outlined">folder</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-wider">Files</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-500 dark:text-zinc-400">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-wider">Profile</span>
+</div>
+</nav>
+</body></html>

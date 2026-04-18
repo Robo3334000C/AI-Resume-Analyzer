@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Curator AI | Premium Analysis Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "outline": "#8f937a",
+                        "surface-container-high": "#2a2a26",
+                        "secondary-fixed": "#d6ec88",
+                        "surface-container-low": "#1b1c18",
+                        "surface-tint": "#afd500",
+                        "primary-fixed-dim": "#afd500",
+                        "on-background": "#e4e3db",
+                        "secondary": "#bad06f",
+                        "inverse-surface": "#e4e3db",
+                        "surface-container-lowest": "#0e0f0b",
+                        "on-secondary-fixed-variant": "#3d4c00",
+                        "outline-variant": "#454934",
+                        "surface-container-highest": "#343530",
+                        "tertiary-fixed": "#e0e0ff",
+                        "on-primary-fixed-variant": "#3d4c00",
+                        "error-container": "#93000a",
+                        "on-primary-container": "#4d5f00",
+                        "surface": "#131410",
+                        "inverse-primary": "#536600",
+                        "on-surface-variant": "#c5c9ae",
+                        "secondary-container": "#485900",
+                        "on-secondary-fixed": "#171e00",
+                        "tertiary": "#eae9ff",
+                        "surface-variant": "#343530",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-container": "#bad06f",
+                        "error": "#ffb4ab",
+                        "tertiary-container": "#c8cbff",
+                        "background": "#131410",
+                        "secondary-fixed-dim": "#bad06f",
+                        "surface-dim": "#131410",
+                        "on-primary-fixed": "#171e00",
+                        "on-tertiary-fixed": "#131740",
+                        "primary-container": "#b7de05",
+                        "surface-container": "#1f201c",
+                        "surface-bright": "#393a35",
+                        "on-surface": "#e4e3db",
+                        "on-tertiary": "#292d57",
+                        "primary-fixed": "#caf22a",
+                        "on-tertiary-fixed-variant": "#3f436f",
+                        "on-secondary": "#2a3500",
+                        "on-tertiary-container": "#515481",
+                        "on-error": "#690005",
+                        "tertiary-fixed-dim": "#c0c3f6",
+                        "on-primary": "#2a3500",
+                        "primary": "#d2fb35",
+                        "inverse-on-surface": "#30312c"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #131410;
+            color: #e4e3db;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(27, 28, 24, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .primary-glow {
+            box-shadow: 0 0 40px rgba(183, 222, 5, 0.1);
+        }
+    </style>
+</head>
+<body class="flex min-h-screen selection:bg-primary selection:text-on-primary">
+<!-- Sidebar Navigation -->
+<aside class="w-72 bg-surface-container-lowest flex-col hidden md:flex sticky top-0 h-screen border-r border-outline-variant/10">
+<div class="px-8 py-8">
+<h1 class="text-2xl font-black text-on-surface tracking-tighter">Curator AI</h1>
+</div>
+<nav class="flex-1 px-4 space-y-2 mt-4">
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-primary/10 hover:text-primary transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium tracking-tight">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl bg-primary-container text-on-primary-container transition-all duration-300 shadow-[0_0_20px_rgba(183,222,5,0.2)]" href="#">
+<span class="material-symbols-outlined" data-icon="analytics" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-medium tracking-tight">Analysis</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-primary/10 hover:text-primary transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-medium tracking-tight">Resumes</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-primary/10 hover:text-primary transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-medium tracking-tight">History</span>
+</a>
+</nav>
+<div class="p-6 mt-auto">
+<div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant/10">
+<div class="flex items-center gap-3">
+<img alt="User Profile" class="w-10 h-10 rounded-full object-cover" data-alt="close-up portrait of a professional man in a minimalist workspace with soft cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBo5Ca1lVINsHmoYt_yU4e3pSBe8vU63f2bG7mOzl4YG2euSZYbkgpwoV-IPIumtLt_8WQUTmnSkuYaBUS3plXalszdDGfKkUY29kx86aG2I35W8jYRPqWBTg0n9t6HmnjJnxZ4NinE3nhpwFFNHUFmW5kV62C-95BEdRIdVwGLH737R9H94UF4yjVBapi1LZ3fxuA4ICq_1BTr-NUxCQ5_hSob7zgxd3LIrA1pPmzQVpS-GhhsfcHHvgp6mwhXiQyaWobvxi_biOw"/>
+<div>
+<p class="text-sm font-bold text-on-surface">Alex Mercer</p>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest">Premium Plan</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0">
+<!-- Top Nav -->
+<header class="h-20 flex items-center justify-between px-8 bg-surface/80 backdrop-blur-xl sticky top-0 z-40">
+<div class="flex items-center gap-4">
+<h2 class="text-lg font-bold text-on-surface">Analysis Workspace</h2>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-wider">Live Processing</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors cursor-pointer" data-icon="search">search</span>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors cursor-pointer" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-primary rounded-full border-2 border-surface"></span>
+</div>
+<button class="bg-primary text-on-primary px-5 py-2 rounded-lg font-bold text-sm tracking-tight hover:scale-105 active:scale-95 transition-all shadow-[0_10px_30px_rgba(183,222,5,0.2)]">
+                    New Scan
+                </button>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="p-8 space-y-8 max-w-[1600px] mx-auto w-full">
+<!-- Hero Status Section -->
+<section class="relative overflow-hidden rounded-3xl bg-surface-container-low p-10 border border-outline-variant/5">
+<div class="absolute -top-24 -right-24 w-96 h-96 bg-primary/5 rounded-full blur-[100px]"></div>
+<div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
+<div class="space-y-4">
+<p class="text-primary font-bold tracking-[0.2em] uppercase text-xs">System Engine Status</p>
+<h3 class="text-4xl md:text-5xl font-black text-on-surface tracking-tighter leading-none">Processing Talent...</h3>
+<p class="text-on-surface-variant max-w-lg text-lg">Curator AI is currently indexing 42 candidates for the Senior Engineering role. Neural matching is 84% complete.</p>
+</div>
+<div class="flex items-center gap-6">
+<div class="text-center">
+<p class="text-3xl font-black text-primary">84%</p>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Accuracy</p>
+</div>
+<div class="w-px h-12 bg-outline-variant/20"></div>
+<div class="text-center">
+<p class="text-3xl font-black text-on-surface">12s</p>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Remaining</p>
+</div>
+</div>
+</div>
+<!-- Progress Bar Pulse -->
+<div class="mt-12 h-1 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary-container to-primary w-[84%] relative">
+<div class="absolute inset-0 bg-white/20 animate-pulse"></div>
+</div>
+</div>
+</section>
+<!-- Layout Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left: Progress Modules -->
+<div class="lg:col-span-7 space-y-6">
+<h4 class="text-sm font-bold uppercase tracking-widest text-on-surface-variant flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span> Live Modules
+                    </h4>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Module Card -->
+<div class="bg-surface-container-low p-6 rounded-2xl border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 rounded-xl bg-surface-container-highest text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+</div>
+<span class="text-[10px] font-bold text-primary px-2 py-1 bg-primary/10 rounded-md">ACTIVE</span>
+</div>
+<h5 class="font-bold text-on-surface mb-2">Neural Extraction</h5>
+<p class="text-sm text-on-surface-variant leading-relaxed">Identifying key experience markers and soft-skill clusters from unstructured PDF data.</p>
+</div>
+<!-- Module Card -->
+<div class="bg-surface-container-low p-6 rounded-2xl border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 rounded-xl bg-surface-container-highest text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+</div>
+<span class="text-[10px] font-bold text-secondary px-2 py-1 bg-secondary/10 rounded-md">VERIFYING</span>
+</div>
+<h5 class="font-bold text-on-surface mb-2">Stack Validation</h5>
+<p class="text-sm text-on-surface-variant leading-relaxed">Cross-referencing stated technologies with GitHub activity and project descriptions.</p>
+</div>
+</div>
+<!-- List Content (No lines rule applied) -->
+<div class="bg-surface-container-low rounded-3xl p-8 space-y-6">
+<h5 class="font-black text-xl text-on-surface">Upcoming Candidates</h5>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-2xl group cursor-pointer hover:bg-surface-container-high transition-all">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center font-bold text-on-surface">JD</div>
+<div>
+<p class="font-bold text-on-surface">Jordan Davis</p>
+<p class="text-xs text-on-surface-variant">Lead Full-Stack Developer</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-primary">9.4/10</p>
+<p class="text-[10px] uppercase font-bold text-on-surface-variant tracking-wider">Match Score</p>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-2xl group cursor-pointer hover:bg-surface-container-high transition-all">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center font-bold text-on-surface">SC</div>
+<div>
+<p class="font-bold text-on-surface">Sarah Chen</p>
+<p class="text-xs text-on-surface-variant">Cloud Solutions Architect</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-primary">8.8/10</p>
+<p class="text-[10px] uppercase font-bold text-on-surface-variant tracking-wider">Match Score</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Resume Scanner Glass Card -->
+<div class="lg:col-span-5">
+<div class="glass-panel p-8 rounded-[2rem] border border-white/5 primary-glow sticky top-28">
+<div class="flex justify-between items-start mb-10">
+<div>
+<h4 class="text-2xl font-black text-on-surface tracking-tighter">Resume Scanner</h4>
+<p class="text-on-surface-variant text-sm tracking-wide uppercase font-bold mt-1">Deep Analysis Mode</p>
+</div>
+<div class="p-3 bg-primary rounded-2xl text-on-primary">
+<span class="material-symbols-outlined" data-icon="scan">scan</span>
+</div>
+</div>
+<!-- Data Visualization Placeholder -->
+<div class="relative h-48 mb-10 flex items-end gap-3 justify-center">
+<div class="w-10 bg-primary/20 h-[40%] rounded-t-lg relative">
+<div class="absolute bottom-0 w-full bg-primary h-[80%] rounded-t-lg"></div>
+</div>
+<div class="w-10 bg-primary/20 h-[70%] rounded-t-lg relative">
+<div class="absolute bottom-0 w-full bg-primary h-[90%] rounded-t-lg"></div>
+</div>
+<div class="w-10 bg-primary/20 h-[100%] rounded-t-lg relative">
+<div class="absolute bottom-0 w-full bg-primary h-[75%] rounded-t-lg"></div>
+</div>
+<div class="w-10 bg-primary/20 h-[60%] rounded-t-lg relative">
+<div class="absolute bottom-0 w-full bg-primary h-[95%] rounded-t-lg"></div>
+</div>
+<div class="w-10 bg-primary/20 h-[85%] rounded-t-lg relative">
+<div class="absolute bottom-0 w-full bg-primary h-[60%] rounded-t-lg"></div>
+</div>
+</div>
+<div class="space-y-8">
+<div>
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-[0.2em] mb-4">Tech Stack Analysis</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 rounded-lg bg-surface-container-highest text-xs font-bold text-on-surface border border-outline-variant/10">TypeScript</span>
+<span class="px-3 py-1.5 rounded-lg bg-surface-container-highest text-xs font-bold text-on-surface border border-outline-variant/10">Kubernetes</span>
+<span class="px-3 py-1.5 rounded-lg bg-surface-container-highest text-xs font-bold text-on-surface border border-outline-variant/10">GraphQL</span>
+<span class="px-3 py-1.5 rounded-lg bg-surface-container-highest text-xs font-bold text-on-surface border border-outline-variant/10">Rust</span>
+<span class="px-3 py-1.5 rounded-lg bg-primary/20 text-xs font-bold text-primary border border-primary/20">TensorFlow</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest/50 p-6 rounded-2xl border border-white/5">
+<div class="flex items-center gap-4 mb-3">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+<p class="font-bold text-sm text-on-surface">Curator Insight</p>
+</div>
+<p class="text-sm text-on-surface-variant italic leading-relaxed">"Candidate shows extreme proficiency in edge computing architectures and low-latency system design. Recommended for Tier 1 interview."</p>
+</div>
+<button class="w-full py-4 rounded-xl bg-gradient-to-r from-primary-container to-primary text-on-primary font-black uppercase tracking-widest text-sm shadow-[0_20px_40px_rgba(183,222,5,0.15)] hover:scale-[1.02] transition-transform">
+                                Download Full Report
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="mt-auto py-12 px-8 bg-surface-container-lowest border-t border-outline-variant/10">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="space-y-4">
+<h1 class="text-lg font-bold text-on-surface uppercase tracking-tight">Curator AI</h1>
+<p class="text-xs text-on-surface-variant leading-relaxed">Advanced intelligence for modern talent acquisition. The Obsidian Curator platform provides deep analysis and semantic matching for high-end technical recruitment.</p>
+</div>
+<div class="flex flex-col gap-2">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-[0.2em] mb-2">Navigation</p>
+<a class="text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Product</a>
+<a class="text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Company</a>
+<a class="text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Newsletter</a>
+</div>
+<div class="flex flex-col justify-between">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary" data-icon="share">share</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary" data-icon="help">help</span>
+</div>
+<p class="text-[10px] text-on-surface-variant tracking-widest uppercase">© 2024 Curator AI. The Obsidian Curator.</p>
+</div>
+</div>
+</footer>
+</main>
+<!-- Mobile Bottom Nav -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-surface/90 backdrop-blur-xl border-t border-outline-variant/10 flex items-center justify-around z-50">
+<span class="material-symbols-outlined text-primary" data-icon="dashboard">dashboard</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="analytics">analytics</span>
+<div class="w-12 h-12 bg-primary rounded-full -mt-8 flex items-center justify-center text-on-primary shadow-lg">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="description">description</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="account_circle">account_circle</span>
+</div>
+</body></html>

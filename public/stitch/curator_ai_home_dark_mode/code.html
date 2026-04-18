@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Curator AI - Architecting Your Future Path</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d0e0a;
+            color: #e4e3db;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(27, 28, 24, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .liquid-glow {
+            box-shadow: 0 0 40px rgba(183, 222, 5, 0.05);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #e4e3db 0%, #c5c9ae 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "outline": "#8f937a",
+                        "surface-container-high": "#2a2a26",
+                        "secondary-fixed": "#d6ec88",
+                        "surface-container-low": "#1b1c18",
+                        "surface-tint": "#afd500",
+                        "primary-fixed-dim": "#afd500",
+                        "on-background": "#e4e3db",
+                        "secondary": "#bad06f",
+                        "inverse-surface": "#e4e3db",
+                        "surface-container-lowest": "#0e0f0b",
+                        "on-secondary-fixed-variant": "#3d4c00",
+                        "outline-variant": "#454934",
+                        "surface-container-highest": "#343530",
+                        "tertiary-fixed": "#e0e0ff",
+                        "on-primary-fixed-variant": "#3d4c00",
+                        "error-container": "#93000a",
+                        "on-primary-container": "#4d5f00",
+                        "surface": "#131410",
+                        "inverse-primary": "#536600",
+                        "on-surface-variant": "#c5c9ae",
+                        "secondary-container": "#485900",
+                        "on-secondary-fixed": "#171e00",
+                        "tertiary": "#eae9ff",
+                        "surface-variant": "#343530",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-container": "#bad06f",
+                        "error": "#ffb4ab",
+                        "tertiary-container": "#c8cbff",
+                        "background": "#131410",
+                        "secondary-fixed-dim": "#bad06f",
+                        "surface-dim": "#131410",
+                        "on-primary-fixed": "#171e00",
+                        "on-tertiary-fixed": "#131740",
+                        "primary-container": "#b7de05",
+                        "surface-container": "#1f201c",
+                        "surface-bright": "#393a35",
+                        "on-surface": "#e4e3db",
+                        "on-tertiary": "#292d57",
+                        "primary-fixed": "#caf22a",
+                        "on-tertiary-fixed-variant": "#3f436f",
+                        "on-secondary": "#2a3500",
+                        "on-tertiary-container": "#515481",
+                        "on-error": "#690005",
+                        "tertiary-fixed-dim": "#c0c3f6",
+                        "on-primary": "#2a3500",
+                        "primary": "#d2fb35",
+                        "inverse-on-surface": "#30312c"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-[#0d0e0a] text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<header class="bg-[#131410]/80 backdrop-blur-xl docked full-width top-0 sticky z-50 tonal-shift bg-[#1b1c18]/50 shadow-[0_20px_50px_rgba(183,222,5,0.05)]">
+<nav class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-black text-[#e4e3db] tracking-tighter">
+                Curator AI
+            </div>
+<div class="hidden md:flex items-center gap-8 font-['Inter'] font-bold tracking-tight">
+<a class="text-[#B7DE05] border-b-2 border-[#B7DE05] pb-1" href="#">Home</a>
+<a class="text-[#c5c9ae] hover:text-[#e4e3db] transition-colors" href="#">Features</a>
+<a class="text-[#c5c9ae] hover:text-[#e4e3db] transition-colors" href="#">Pricing</a>
+<a class="text-[#c5c9ae] hover:text-[#e4e3db] transition-colors" href="#">About</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-[#c5c9ae] hover:bg-[#B7DE05]/10 hover:backdrop-blur-2xl p-2 rounded-full transition-all duration-300">notifications</button>
+<button class="material-symbols-outlined text-[#c5c9ae] hover:bg-[#B7DE05]/10 hover:backdrop-blur-2xl p-2 rounded-full transition-all duration-300">account_circle</button>
+</div>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center overflow-hidden px-8">
+<div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
+<div class="z-10">
+<span class="inline-block px-4 py-1 rounded-full bg-surface-container-high text-primary text-xs font-bold tracking-widest uppercase mb-6">Intelligence Platform</span>
+<h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-8 leading-[0.9] text-gradient">
+                        Architecting Your <br/>Future Path
+                    </h1>
+<p class="text-on-surface-variant text-lg md:text-xl max-w-md mb-10 leading-relaxed font-light">
+                        The obsidian standard for career curation. Leverage deep AI analytics to transform your professional narrative into a high-performance engine.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-gradient-to-br from-primary-container to-primary text-on-primary-fixed px-10 py-4 rounded-xl font-bold text-lg scale-95 active:scale-90 transition-transform shadow-[0_10px_30px_rgba(183,222,5,0.3)] hover:shadow-[0_15px_40px_rgba(183,222,5,0.4)] transition-all">
+                            Initialize Growth
+                        </button>
+<button class="bg-transparent border border-outline-variant/30 backdrop-blur-xl text-on-surface px-10 py-4 rounded-xl font-bold text-lg hover:bg-white/5 transition-all">
+                            View Methodology
+                        </button>
+</div>
+</div>
+<div class="relative flex justify-center">
+<!-- Glass Shelf Background Decor -->
+<div class="absolute inset-0 bg-primary/5 rounded-full blur-[120px]"></div>
+<div class="relative w-full aspect-square max-w-md glass-card rounded-3xl p-1 overflow-hidden shadow-2xl border border-outline-variant/20">
+<img alt="Abstract 3D plant" class="w-full h-full object-cover rounded-[1.4rem]" data-alt="3D abstract translucent plant-like sculpture with geometric glass leaves resting on a polished dark obsidian shelf with neon green highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBB4u6X1GzryJMBLWZLksjraoY08ApSG__UygN1LdlQD6nWu5UTIIZ1P-a76hQncJXC0jIm2mpZRS767STAeX1gaMuE1ELRGYIW0E4HhBier3Ofvx6MAFRZ42bbeLi5_z-dkVOa8AaO0EWxkfQQ1H_cDWhaGppTfRRAoHztkqOcyoXzJiwxt__dp-ofGc4UgbsnXy7aPcKK0x3HVO-3o-0k_4Vc3kS46tIgP_zl6PrXunsC1YgrHuHXBi1es7ruC5k3VSHftWNL-Js"/>
+<!-- Floating Glass Labels -->
+<div class="absolute bottom-6 right-6 glass-card p-4 rounded-xl border border-white/10 liquid-glow">
+<div class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Growth Index</div>
+<div class="text-2xl font-black text-on-surface">+184%</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Sections (Bento Grid) -->
+<section class="py-24 px-8 bg-surface-container-low">
+<div class="max-w-7xl mx-auto">
+<div class="mb-16">
+<h2 class="text-4xl font-bold tracking-tight mb-4">Precision Instruments</h2>
+<p class="text-on-surface-variant max-w-lg">Advanced modules designed to dissect, analyze, and rebuild your professional DNA.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[800px]">
+<!-- AI Resume Optimizer -->
+<div class="md:col-span-8 glass-card rounded-3xl p-10 border border-outline-variant/10 flex flex-col justify-between relative overflow-hidden group">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-primary text-4xl mb-6">auto_awesome</span>
+<h3 class="text-3xl font-bold mb-4">AI Resume Optimizer</h3>
+<p class="text-on-surface-variant max-w-md mb-8">Deploying neural-linguistic models to reconstruct your experience into high-conversion bullet points that outperform ATS benchmarks.</p>
+<button class="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all">
+                                Execute Analysis <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="absolute right-0 bottom-0 w-1/2 opacity-40 grayscale group-hover:grayscale-0 transition-all duration-700">
+<img alt="UI Mockup" class="w-full h-full object-cover rounded-tl-3xl" data-alt="Modern dark UI dashboard showing resume optimization progress with glowing green bars and minimalist data visualizations" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWcpy-0kTMm2_kZvwiKtQB8gWCoW1htrntVmZoJunVvNrzJNeb_J7A9Q9eUDD6LxHkPxFoUmqGRyThxjrO8Jm6RAtVPuBqry_O81Pny1SWt6uFZrQvK5gqFZGSXTXdKrN1-qMbPYh_Sso31CeDc5-9HASJDM-h55y0nEgZpNRiinZs8ab8cikRLqnbsQLUaAsuD16TCbbhB5u0Fi9t4bAq1sXYDjn039bTVBkJsAm_CWBUogTB-1DGlLNgmFzDFadAdyIUqT_bQoE"/>
+</div>
+</div>
+<!-- Resume Scanner -->
+<div class="md:col-span-4 glass-card rounded-3xl p-8 border border-outline-variant/10 flex flex-col items-start justify-end bg-gradient-to-t from-primary/5 to-transparent">
+<span class="material-symbols-outlined text-primary text-4xl mb-6">qr_code_scanner</span>
+<h3 class="text-2xl font-bold mb-3">Resume Scanner</h3>
+<p class="text-on-surface-variant text-sm mb-6">Instant compatibility scoring against Tier-1 job descriptions.</p>
+<div class="w-full h-32 glass-card rounded-xl border border-white/5 p-4 flex items-center justify-center">
+<div class="w-24 h-24 border-4 border-dashed border-primary/30 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">upload_file</span>
+</div>
+</div>
+</div>
+<!-- Skill DNA -->
+<div class="md:col-span-5 glass-card rounded-3xl p-8 border border-outline-variant/10 flex flex-col">
+<span class="material-symbols-outlined text-primary text-4xl mb-6">genetics</span>
+<h3 class="text-2xl font-bold mb-3">Skill DNA</h3>
+<p class="text-on-surface-variant text-sm mb-8">Map your cognitive and technical abilities onto a multi-dimensional graph to identify critical market gaps.</p>
+<div class="mt-auto grid grid-cols-3 gap-2">
+<div class="h-20 bg-primary/20 rounded-lg"></div>
+<div class="h-32 bg-primary/40 rounded-lg"></div>
+<div class="h-16 bg-primary/10 rounded-lg"></div>
+</div>
+</div>
+<!-- Interview Simulator -->
+<div class="md:col-span-7 glass-card rounded-3xl p-10 border border-outline-variant/10 relative overflow-hidden flex items-center">
+<div class="w-1/2 pr-6">
+<span class="material-symbols-outlined text-primary text-4xl mb-6">psychology</span>
+<h3 class="text-3xl font-bold mb-4">Interview Simulator</h3>
+<p class="text-on-surface-variant mb-6">Face custom-tailored AI personas in high-stakes simulations with real-time biometric feedback.</p>
+<button class="bg-surface-container-highest px-6 py-2 rounded-full text-sm font-bold border border-outline-variant/20">Begin Session</button>
+</div>
+<div class="w-1/2 h-full py-10">
+<img alt="Person in studio" class="w-full h-full object-cover rounded-2xl" data-alt="Close up of high-tech studio lighting and camera equipment in a dark moody environment with green accent lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDg_ugcf_7q6OMvJ4d31kFeRSAY2lAW6N9EWqAcW9LLr8m60AjhHcLYMFkS6-CNDAlPXoJum5w0wCRUGIiYB0vv-fK-ocjoviS8j6c6dUvEgz7EVB6d0Hhyd-ekvZYuSEoX_9aT6JsVWBaWvgNu4iUVXO447pP2cDjL_9-zbmZ0ROSsk_mqydSJqpT02RZlJqYwwvCV4pDQOo7X8tTBjwLITRZOOjUUoLbpKDLIQvEHRSAOYQF8zsyPcXADDAPdmFkZBSVqk8TDaVc"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="py-24 px-8 border-t border-outline-variant/10">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+<div>
+<div class="text-5xl font-black text-primary mb-2">94%</div>
+<div class="text-on-surface-variant font-['Inter'] text-sm uppercase tracking-widest">Success Rate</div>
+</div>
+<div>
+<div class="text-5xl font-black text-on-surface mb-2">12M+</div>
+<div class="text-on-surface-variant font-['Inter'] text-sm uppercase tracking-widest">Profiles Scanned</div>
+</div>
+<div>
+<div class="text-5xl font-black text-on-surface mb-2">2.4k</div>
+<div class="text-on-surface-variant font-['Inter'] text-sm uppercase tracking-widest">Daily Placements</div>
+</div>
+<div>
+<div class="text-5xl font-black text-primary mb-2">15ms</div>
+<div class="text-on-surface-variant font-['Inter'] text-sm uppercase tracking-widest">Analysis Latency</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Success Rate Card (Floating Overlap) -->
+<section class="relative h-64 flex justify-center items-center pointer-events-none">
+<div class="absolute -top-32 w-full max-w-4xl px-8 pointer-events-auto">
+<div class="glass-card rounded-[2rem] p-12 border border-primary/20 shadow-[0_40px_100px_rgba(183,222,5,0.1)] flex flex-col md:flex-row items-center gap-10">
+<div class="flex-1">
+<h4 class="text-3xl font-bold mb-2">Ready to initiate?</h4>
+<p class="text-on-surface-variant">Your premium career trajectory is one computation away.</p>
+</div>
+<button class="whitespace-nowrap bg-primary text-on-primary-fixed px-12 py-5 rounded-2xl font-black text-xl hover:shadow-[0_0_30px_rgba(183,222,5,0.4)] transition-all">
+                        GET ACCESS NOW
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#0e0f0b] full-width mt-auto border-t border-[#454934]/20">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-8 py-16 max-w-7xl mx-auto">
+<div class="flex flex-col gap-6">
+<div class="text-lg font-bold text-[#e4e3db]">Curator AI</div>
+<p class="text-on-surface-variant text-sm leading-relaxed max-w-xs">
+                    The Obsidian Curator for high-performance professionals. Defining the future of AI-driven career architecture.
+                </p>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="flex flex-col gap-4">
+<span class="font-['Inter'] text-sm uppercase tracking-widest text-primary">Product</span>
+<a class="text-[#c5c9ae] hover:text-[#d2fb35] transition-colors text-sm uppercase tracking-widest" href="#">Features</a>
+<a class="text-[#c5c9ae] hover:text-[#d2fb35] transition-colors text-sm uppercase tracking-widest" href="#">Pricing</a>
+<a class="text-[#c5c9ae] hover:text-[#d2fb35] transition-colors text-sm uppercase tracking-widest" href="#">Security</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-['Inter'] text-sm uppercase tracking-widest text-primary">Company</span>
+<a class="text-[#c5c9ae] hover:text-[#d2fb35] transition-colors text-sm uppercase tracking-widest" href="#">About</a>
+<a class="text-[#c5c9ae] hover:text-[#d2fb35] transition-colors text-sm uppercase tracking-widest" href="#">Newsletter</a>
+<a class="text-[#c5c9ae] hover:text-[#d2fb35] transition-colors text-sm uppercase tracking-widest" href="#">Privacy</a>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<span class="font-['Inter'] text-sm uppercase tracking-widest text-primary">Status</span>
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="text-sm text-[#e4e3db]">All Systems Operational</span>
+</div>
+<div class="text-[#c5c9ae] text-xs font-['Inter'] uppercase tracking-widest">
+                    © 2024 Curator AI. The Obsidian Curator.
+                </div>
+</div>
+</div>
+</footer>
+</body></html>

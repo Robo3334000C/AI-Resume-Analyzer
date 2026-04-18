@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Analysis Center | Curator AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "outline": "#8f937a",
+                        "surface-container-high": "#2a2a26",
+                        "secondary-fixed": "#d6ec88",
+                        "surface-container-low": "#1b1c18",
+                        "surface-tint": "#afd500",
+                        "primary-fixed-dim": "#afd500",
+                        "on-background": "#e4e3db",
+                        "secondary": "#bad06f",
+                        "inverse-surface": "#e4e3db",
+                        "surface-container-lowest": "#0e0f0b",
+                        "on-secondary-fixed-variant": "#3d4c00",
+                        "outline-variant": "#454934",
+                        "surface-container-highest": "#343530",
+                        "tertiary-fixed": "#e0e0ff",
+                        "on-primary-fixed-variant": "#3d4c00",
+                        "error-container": "#93000a",
+                        "on-primary-container": "#4d5f00",
+                        "surface": "#131410",
+                        "inverse-primary": "#536600",
+                        "on-surface-variant": "#c5c9ae",
+                        "secondary-container": "#485900",
+                        "on-secondary-fixed": "#171e00",
+                        "tertiary": "#eae9ff",
+                        "surface-variant": "#343530",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-container": "#bad06f",
+                        "error": "#ffb4ab",
+                        "tertiary-container": "#c8cbff",
+                        "background": "#131410",
+                        "secondary-fixed-dim": "#bad06f",
+                        "surface-dim": "#131410",
+                        "on-primary-fixed": "#171e00",
+                        "on-tertiary-fixed": "#131740",
+                        "primary-container": "#b7de05",
+                        "surface-container": "#1f201c",
+                        "surface-bright": "#393a35",
+                        "on-surface": "#e4e3db",
+                        "on-tertiary": "#292d57",
+                        "primary-fixed": "#caf22a",
+                        "on-tertiary-fixed-variant": "#3f436f",
+                        "on-secondary": "#2a3500",
+                        "on-tertiary-container": "#515481",
+                        "on-error": "#690005",
+                        "tertiary-fixed-dim": "#c0c3f6",
+                        "on-primary": "#2a3500",
+                        "primary": "#d2fb35",
+                        "inverse-on-surface": "#30312c"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(52, 53, 48, 0.4);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(69, 73, 52, 0.2);
+        }
+        .liquid-gradient-text {
+            background: linear-gradient(135deg, #b7de05 0%, #d2fb35 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .resume-shadow {
+            box-shadow: 0 30px 60px -12px rgba(0,0,0,0.5), 0 18px 36px -18px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary/30 min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="bg-[#131410]/80 backdrop-blur-xl docked full-width top-0 sticky z-50 shadow-[0_20px_50px_rgba(183,222,5,0.05)]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-black text-[#e4e3db] tracking-tighter font-['Inter']">
+                Curator <span class="text-[#B7DE05]">AI</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-['Inter'] font-bold tracking-tight text-[#c5c9ae] hover:text-[#e4e3db] transition-colors" href="#">Home</a>
+<a class="font-['Inter'] font-bold tracking-tight text-[#B7DE05] border-b-2 border-[#B7DE05] pb-1" href="#">Features</a>
+<a class="font-['Inter'] font-bold tracking-tight text-[#c5c9ae] hover:text-[#e4e3db] transition-colors" href="#">Pricing</a>
+<a class="font-['Inter'] font-bold tracking-tight text-[#c5c9ae] hover:text-[#e4e3db] transition-colors" href="#">About</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-[#c5c9ae] hover:bg-[#B7DE05]/10 p-2 rounded-full transition-all">notifications</button>
+<button class="material-symbols-outlined text-[#c5c9ae] hover:bg-[#B7DE05]/10 p-2 rounded-full transition-all">account_circle</button>
+</div>
+</div>
+</header>
+<main class="flex-grow w-full max-w-7xl mx-auto px-6 py-12 lg:py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<!-- Left Side: Resume Preview -->
+<section class="lg:col-span-7 flex flex-col gap-8 order-2 lg:order-1">
+<div class="flex items-center justify-between mb-2">
+<div class="flex flex-col">
+<span class="text-label-sm uppercase tracking-widest text-on-surface-variant font-medium">Document Preview</span>
+<h2 class="text-2xl font-bold tracking-tight text-on-surface">resume_v4_final.pdf</h2>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-all">
+<span class="material-symbols-outlined text-sm">download</span>
+<span class="text-sm font-semibold">Export</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-all">
+<span class="material-symbols-outlined text-sm">edit</span>
+<span class="text-sm font-semibold">Edit</span>
+</button>
+</div>
+</div>
+<!-- The Resume Canvas -->
+<div class="bg-surface-container-low rounded-xl p-12 aspect-[1/1.414] resume-shadow relative overflow-hidden border border-outline-variant/10">
+<!-- Resume Content -->
+<div class="max-w-2xl mx-auto h-full flex flex-col">
+<div class="border-b border-outline-variant/20 pb-8 mb-8">
+<h1 class="text-4xl font-extrabold tracking-tighter text-on-surface mb-2">ALEXANDER CHASE</h1>
+<p class="text-on-surface-variant font-medium tracking-wide">Senior Full-Stack Engineer &amp; Product Architect</p>
+<div class="flex gap-4 mt-4 text-sm text-on-surface-variant/80">
+<span>San Francisco, CA</span>
+<span>•</span>
+<span>a.chase@domain.com</span>
+<span>•</span>
+<span>linkedin.com/in/achase</span>
+</div>
+</div>
+<div class="space-y-8">
+<div>
+<h3 class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4">Professional Summary</h3>
+<p class="text-on-surface-variant leading-relaxed text-sm">
+                                Innovative software architect with 10+ years of experience building scalable distributed systems. Proven track record of reducing latency by 40% and leading cross-functional teams of 15+ engineers to deliver high-impact cloud solutions.
+                            </p>
+</div>
+<div>
+<h3 class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4">Core Experience</h3>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between items-baseline mb-1">
+<h4 class="font-bold text-on-surface">Lead Systems Architect @ TechFlow</h4>
+<span class="text-xs text-on-surface-variant">2019 — Present</span>
+</div>
+<ul class="text-sm text-on-surface-variant leading-relaxed list-disc list-inside space-y-1">
+<li>Architected a real-time data ingestion pipeline processing 2TB/day.</li>
+<li>Implemented microservices architecture using Go and Kubernetes.</li>
+<li>Mentored 5 junior developers resulting in 30% increase in sprint velocity.</li>
+</ul>
+</div>
+<div>
+<div class="flex justify-between items-baseline mb-1">
+<h4 class="font-bold text-on-surface">Full Stack Engineer @ Nexus Core</h4>
+<span class="text-xs text-on-surface-variant">2015 — 2019</span>
+</div>
+<ul class="text-sm text-on-surface-variant leading-relaxed list-disc list-inside space-y-1">
+<li>Developed front-end frameworks using React and TypeScript.</li>
+<li>Optimized database queries reducing load times by 2.5s.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Side: Analysis Center -->
+<aside class="lg:col-span-5 flex flex-col gap-6 order-1 lg:order-2 sticky top-28">
+<div class="flex flex-col gap-1 mb-2">
+<span class="text-label-sm uppercase tracking-widest text-primary font-bold">Real-time Intelligence</span>
+<h2 class="text-3xl font-black tracking-tighter text-on-surface italic">Analysis Center</h2>
+</div>
+<!-- Main Score Card -->
+<div class="glass-card rounded-2xl p-8 flex items-center justify-between overflow-hidden relative group">
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-primary/10 rounded-full blur-[80px] group-hover:bg-primary/20 transition-all duration-700"></div>
+<div class="flex flex-col gap-2 z-10">
+<span class="text-label-md font-bold tracking-widest text-on-surface-variant">OVERALL ATS SCORE</span>
+<h3 class="text-4xl font-black text-on-surface">Excellent</h3>
+<p class="text-sm text-on-surface-variant max-w-[180px]">Your resume is in the top 5% of all candidates for this role.</p>
+</div>
+<!-- Circular Gauge -->
+<div class="relative w-32 h-32 flex items-center justify-center z-10">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-container-highest" cx="64" cy="64" fill="transparent" r="56" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary" cx="64" cy="64" fill="transparent" r="56" stroke="currentColor" stroke-dasharray="351.8" stroke-dashoffset="35.1" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<span class="absolute text-3xl font-black text-on-surface">92</span>
+</div>
+</div>
+<!-- Breakdown Grid -->
+<div class="grid grid-cols-2 gap-4">
+<!-- Keyword Match -->
+<div class="glass-card rounded-xl p-5 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary p-2 bg-primary/10 rounded-lg">rebase_edit</span>
+<span class="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded">88%</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface mb-1">Keyword Match</h4>
+<p class="text-xs text-on-surface-variant">Strong alignment with 'Cloud Architecture' and 'Kubernetes'.</p>
+</div>
+</div>
+<!-- Grammar & Tone -->
+<div class="glass-card rounded-xl p-5 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-secondary p-2 bg-secondary/10 rounded-lg">auto_fix_high</span>
+<span class="text-xs font-bold text-secondary bg-secondary/10 px-2 py-1 rounded">100%</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface mb-1">Grammar &amp; Tone</h4>
+<p class="text-xs text-on-surface-variant">Professional, authoritative, and free of any syntax errors.</p>
+</div>
+</div>
+<!-- Layout & Formatting -->
+<div class="glass-card rounded-xl p-5 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-on-surface-variant p-2 bg-surface-container-highest rounded-lg">dashboard_customize</span>
+<span class="text-xs font-bold text-on-surface-variant bg-surface-container-highest px-2 py-1 rounded">72%</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface mb-1">Layout &amp; Flow</h4>
+<p class="text-xs text-on-surface-variant">Header spacing could be optimized for better mobile scanning.</p>
+</div>
+</div>
+<!-- Impact Metrics -->
+<div class="glass-card rounded-xl p-5 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary p-2 bg-primary/10 rounded-lg">trending_up</span>
+<span class="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded">94%</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface mb-1">Impact Metrics</h4>
+<p class="text-xs text-on-surface-variant">Excellent use of quantifiable achievements and data points.</p>
+</div>
+</div>
+</div>
+<!-- Optimize Button -->
+<button class="w-full py-5 px-8 rounded-xl bg-gradient-to-br from-primary-container to-primary text-on-primary font-black tracking-widest text-lg flex items-center justify-center gap-3 shadow-[0_20px_40px_rgba(183,222,5,0.2)] hover:scale-[1.02] active:scale-[0.98] transition-all group overflow-hidden relative">
+<span class="z-10 flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                    OPTIMIZE WITH AI
+                </span>
+<div class="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 skew-x-[-20deg]"></div>
+</button>
+<!-- Insight List -->
+<div class="mt-4 flex flex-col gap-4">
+<h5 class="text-label-sm font-bold tracking-[0.2em] text-on-surface-variant uppercase">Key Recommendations</h5>
+<div class="space-y-3">
+<div class="flex gap-4 items-start group">
+<div class="w-1.5 h-1.5 rounded-full bg-primary mt-2"></div>
+<p class="text-sm text-on-surface-variant group-hover:text-on-surface transition-colors cursor-default">Add "Terraform" to your technical stack to match 3 more job descriptions in your area.</p>
+</div>
+<div class="flex gap-4 items-start group">
+<div class="w-1.5 h-1.5 rounded-full bg-primary mt-2"></div>
+<p class="text-sm text-on-surface-variant group-hover:text-on-surface transition-colors cursor-default">Quantify the TechFlow mentorship impact more specifically (e.g., % of promo rate).</p>
+</div>
+</div>
+</div>
+</aside>
+</main>
+<!-- Footer -->
+<footer class="bg-[#0e0f0b] full-width mt-auto border-t border-[#454934]/20">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-8 py-16 max-w-7xl mx-auto">
+<div class="flex flex-col gap-6">
+<div class="text-lg font-bold text-[#e4e3db]">Curator AI</div>
+<p class="text-[#c5c9ae] text-sm lowercase max-w-xs">Elevating professional narratives through obsidian-grade intelligence and liquid design.</p>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-['Inter'] text-sm uppercase tracking-widest text-[#B7DE05]">Product</span>
+<a class="text-[#c5c9ae] hover:text-[#d2fb35] transition-colors text-sm" href="#">Features</a>
+<a class="text-[#c5c9ae] hover:text-[#d2fb35] transition-colors text-sm" href="#">Templates</a>
+<a class="text-[#c5c9ae] hover:text-[#d2fb35] transition-colors text-sm" href="#">Analysis</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-['Inter'] text-sm uppercase tracking-widest text-[#B7DE05]">Newsletter</span>
+<div class="flex gap-2">
+<input class="bg-surface-container-highest border-none rounded-lg px-4 py-2 text-sm focus:ring-1 focus:ring-primary w-full text-on-surface" placeholder="Your email" type="email"/>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg text-sm font-bold">Join</button>
+</div>
+<span class="text-[#c5c9ae] text-xs mt-4">© 2024 Curator AI. The Obsidian Curator.</span>
+</div>
+</div>
+</footer>
+</body></html>
